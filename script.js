@@ -26,7 +26,7 @@
                 console.log('Great! Your answer is correct. Your score is: ' +score);
             }
             else {
-                console.log('Sad face! This is not a correct answer.');
+                console.log('Sad face! This is not a correct answer. Your score is: ' +score);
             }
         }
     };
