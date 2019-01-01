@@ -14,12 +14,12 @@
             }
             var answer = prompt(newQuestion + ' -please type number of correnct answer.')
             return answer;
-        }
+        },
 
         this.verify = function(answer){
             console.log('Your answer is: ' + answer);
             if(answer == 'exit' ) {
-                console.log('Thank you for playing.');
+                console.log('Thank you for playing. Your score is: ' +score);
                 return;
             } else if (answer==theAnswer) {
                 score++;
@@ -31,15 +31,23 @@
         }
     };
 
+
     var q1 = new Question('How many sexes there are?', [3, 12, 2, 5], 2);
     var q2 = new Question('How many gods there are?', [1,2,3], 1);
     var q3 = new Question('Who let the dogs out?', ['you', 'she', 'he', 'me'], 'me');
     var q4 = new Question('Better pierogi or hamburgers?', ['pierogi', 'hamburgers'], 'pierogi');
     var allQuestions = [q1, q2, q3, q4];
-    var nextQuestion = allQuestions[Math.floor(Math.random() * allQuestions.length)];
-    var answer = nextQuestion.asking();
+    
+    function run() {
+        var nextQuestion = allQuestions[Math.floor(Math.random() * allQuestions.length)];
+        var answer = nextQuestion.asking();
+        nextQuestion.verify(answer);
+        if(answer!=='exit'){
+            run();
+        }
+    }
 
-    nextQuestion.verify(answer);
+    run();
 
 })();
 
