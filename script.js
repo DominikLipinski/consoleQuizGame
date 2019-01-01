@@ -11,6 +11,14 @@
                 console.log(answers.indexOf(answers[i]) +': '+ answers[i]);
             }
             var answer = prompt(newQuestion + ' -please type number of correnct answer.')
+            console.log('Your answer is: ' + answer);
+
+            // if(answer==theAnswer) {
+            //     console.log('Great! Your answer is correct.')
+            // } else {
+            //     console.log('Sad face! This is not a correct answer.')
+            // }
+
             return answer;
         }
         this.verify = function(answer){
@@ -30,8 +38,8 @@
 
     var allQuestions = [q1, q2, q3];
 
-    q1.asking();
-    q1.verify();
+    var answer = q1.asking();
+    q1.verify(answer);
 
 })();
 
